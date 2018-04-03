@@ -4,7 +4,8 @@
   "description": "Messing around with TS",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
