@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Tokap/typescript-playground/issues"
   },
-  "homepage": "https://github.com/Tokap/typescript-playground#readme"
+  "homepage": "https://github.com/Tokap/typescript-playground#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
 }
