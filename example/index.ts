@@ -17,7 +17,7 @@ let person = {
     lastName: 'Smith'
 }
 
-greeter(person);
+greeter(firstUser);
 // ------------------------------------------------
 // Example Using ES6 Classes:
 // ------------------------------------------------

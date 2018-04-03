@@ -4,7 +4,8 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outFile": "./src/built/tsc.js",
+        "outFile": "./src/public/translated-scripts.js",
+        "strictNullChecks": true,
         "sourceMap": true
     },
     "include": [

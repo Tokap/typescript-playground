@@ -1,0 +1,58 @@
+/* --- Font Normalization & General Styles --- */
+
+h1,
+h2,
+h3,
+p,
+div,
+button,
+a,
+input,
+label {
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+#landing {
+    text-align: center;
+}
+
+/* --- CTA Button Styling --- */
+
+button {
+    background: transparent;
+    border: 1px solid #00B233;
+    color: #00B233;
+    display: inline-block;
+    font-size: 32px;
+    margin: 20px 0;
+    padding: 5px 15px;
+}
+
+button:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+}
+
+.content-column {
+    display: inline-block;
+    margin-right: 2%;
+    min-height: 300px;
+    text-align: left;
+    vertical-align: text-top;
+    width: 45%;
+}
+
+.content-column p {
+    line-height: 22px;
+    min-height: 200px;
+}
+
+.content-column h3 {
+    min-height: 30px;
+}

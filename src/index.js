@@ -1,6 +1,6 @@
 // Server Home
-import * as BodyParser from 'body-parser';
-import * as Express from 'express';
+const BodyParser = require('body-parser');
+const Express = require('express');
 
 const App = Express()
 const PORT = 3000

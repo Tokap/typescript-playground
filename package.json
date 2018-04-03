@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "build": "tsc",
-    "clear-build": "rm -rf ./src/built"
+    "clear-build": "rm ./src/public/translated-scripts.js && rm ./src/public/translated-scripts.js.map",
+    "start": "tsc && node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "@types/express": "^4.11.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "system": "^2.0.1"
   }
 }
