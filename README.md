@@ -1,5 +1,5 @@
 # typescript-playground
-Messing Around with TypeScript
+### Messing Around with TypeScript
 
 Install TypeScript Globally:
 - `npm install -g typescript`

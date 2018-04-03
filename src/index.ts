@@ -1,46 +1,31 @@
-// ------------------------------------------------
-// Base Example of Making Interfaces (Structs):
-// ------------------------------------------------
-interface Person {
-    firstName: string;
-    lastName: string;
+// Server Home
+import * as BodyParser from 'body-parser';
+import * as Express from 'express';
+
+const App = Express()
+const PORT = 3000
+
+//  --- Set JSON & Template Configs ---
+App.use(BodyParser.urlencoded({ extended: true }))
+App.use(BodyParser.json())
+App.use('/static', Express.static(`${__dirname}/public`))
+App.set('view engine', 'pug')
+App.set('views', `${__dirname}/templates`)
+
+// --- Routes
+// - Render Landing Page
+App.get('/', (req, res) => res.render('landing', {}))
+
+// - Sys Alive
+App.get('/sys/alive', (req, res) =>
+    res.send({ status: 'Test server is running.' })
+)
+
+// -Init Function
+function startServer() {
+    console.log(`Listening on Port: ${PORT}`)
+    App.listen(PORT)
 }
 
-function greeter(person: Person) {
-    return "Hello, " + person.firstName;
-}
-
-let firstUser = "Jane User";
-
-let person = {
-    firstName: 'John',
-    lastName: 'Smith'
-}
-
-greeter(person);
-// ------------------------------------------------
-// Example Using ES6 Classes:
-// ------------------------------------------------
-class Student {
-    fullName: string;
-    constructor(
-        public firstName: string,
-        public middleInitial: string,
-        public lastName: string
-    ) {
-        this.fullName = firstName + " " + middleInitial + " " + lastName;
-    }
-}
-
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-function greeterTwo(person: Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-
-let user = new Student("Jane", "M.", "User");
-
-greeterTwo(user);
+// - Start Server
+startServer()
