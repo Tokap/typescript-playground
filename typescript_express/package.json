@@ -6,8 +6,8 @@
   "scripts": {
     "test": "test",
     "build": "tsc",
-    "clear-build": "rm ./src/public/translated-scripts.js && rm ./src/public/translated-scripts.js.map",
-    "start": "tsc && node ./src/index.js"
+    "clear-build": "rm ./typescript_express/src/public/translated-scripts.js && rm ./typescript_express/src/public/translated-scripts.js.map",
+    "start_demo": "tsc && node ./typescript_express/src/index.js"
   },
   "repository": {
     "type": "git",

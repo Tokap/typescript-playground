@@ -28,3 +28,18 @@ Config Notes:
 
 - You will often need to add types to your project based on the package being used. Here is an example to add react typing to a project:
 `npm install react @types/react`
+
+Some Comments:
+One of TypeScript’s core principles is that type-checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”.
+
+It may be best practice to have a types (interface) directory, but for smaller typing keeping them paired with the corresponding component directly seems reasonable.
+
+If we were keeping a type directory with one type stored, we would export by doing the following:
+```
+export default interface User{
+        name: string;
+        age: number;
+        address: string;
+        dob: Date;
+}
+```

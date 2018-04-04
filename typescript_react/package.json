@@ -1,0 +1,29 @@
+{
+  "name": "typescript-playground",
+  "version": "1.0.0",
+  "description": "Messing around with TS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tokap/typescript-playground.git"
+  },
+  "author": "Patrick Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tokap/typescript-playground/issues"
+  },
+  "homepage": "https://github.com/Tokap/typescript-playground#readme",
+  "dependencies": {
+    "moment": "^2.22.0",
+    "react": "^16.3.0",
+    "react-day-picker": "^7.1.4",
+    "react-dom": "^16.3.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
