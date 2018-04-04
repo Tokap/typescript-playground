@@ -57,9 +57,7 @@ function constructUrl (base: string, slug: string): string {
 }
 
 function callTestApi (event: Event) {
-    const url: string = constructUrl(baseUrl, postSlug);
-
-    fetch('/getApi/comments')
+    return fetch('/getApi/comments')
     .then(rez => rez.json())
     .then(jsonRez => jsonRez.body)
     .then(console.log)
@@ -77,7 +75,11 @@ window.document.addEventListener('DOMContentLoaded', function () {
             // The use of bind removes the type safety. Frown.
             // doTheThing.bind(null, 'This worked!')
             // (event: Event) => doTheThing('This worked!')
-            callTestApi
+            (event: Event) => {
+                return callTestApi(event)
+                .then()
+
+            }
         )
     }
 })
