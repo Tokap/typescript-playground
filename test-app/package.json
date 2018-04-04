@@ -1,0 +1,32 @@
+{
+  "name": "test-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "moment": "^2.22.0",
+    "react": "^16.3.0",
+    "react-datepicker": "^1.4.0",
+    "react-day-picker": "^7.1.4",
+    "react-dom": "^16.3.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "react-app"
+    ],
+    "rules": {
+      "no-console": "off",
+      "strict": [
+        "error",
+        "global"
+      ]
+    }
+  }
+}
