@@ -25,3 +25,6 @@ Config Notes:
    }
 }
 ```
+
+- You will often need to add types to your project based on the package being used. Here is an example to add react typing to a project:
+`npm install react @types/react`
