@@ -13,15 +13,6 @@
     "url": "https://github.com/Tokap/typescript-playground/issues"
   },
   "homepage": "https://github.com/Tokap/typescript-playground#readme",
-  "dependencies": {
-    "moment": "^2.22.0",
-    "react": "^16.3.0",
-    "react-day-picker": "^7.1.4",
-    "react-dom": "^16.3.0",
-    "react-scripts": "1.1.1",
-    "ts-loader": "^4.1.0",
-    "webpack": "^4.5.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,8 +20,19 @@
     "eject": "react-scripts eject",
     "build-webpack": "webpack"
   },
+  "dependencies": {
+    "moment": "^2.22.0",
+    "react": "^16.3.0",
+    "react-day-picker": "^7.1.4",
+    "react-dom": "^16.3.0",
+    "react-scripts": "1.1.1",
+    "ts-loader": "^4.1.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.5.0"
+  },
   "devDependencies": {
     "@types/react": "^16.3.5",
-    "@types/react-dom": "^16.0.4"
+    "@types/react-dom": "^16.0.4",
+    "webpack-cli": "^2.0.13"
   }
 }

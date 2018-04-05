@@ -1,20 +1,28 @@
 var path = require("path");
+
 var config = {
-    entry: ["./app.tsx"],
+    mode: "development",
+
+    entry: ["./src/app.tsx"],
+
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js"
     },
+
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: "ts-loader",
-                exclude: /node_modules/
+                use: [
+                    { 
+                        loader: "ts-loader"
+                    }
+                ]
             }
         ]
     }
