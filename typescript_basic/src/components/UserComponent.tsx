@@ -8,7 +8,8 @@ export default class UserComponent extends React.Component<UserInterface, {}> {
         super(props);
     }
     render() {
-        return (<div>
+        return (
+        <div>
             <h1>User Component</h1>
             Hello, {this.props.name}
             <br />
