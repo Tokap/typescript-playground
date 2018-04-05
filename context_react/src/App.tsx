@@ -9,6 +9,7 @@ const store = {
 };
 
 const myContext = createContext(store);
+const { Provider, Consumer } = myContext;
 
 // Once we have established context, you create a single myContext.Provider instance
 // that wraps zero or more myContext.Consumer components
@@ -18,14 +19,16 @@ const logo = require("./logo.svg");
 class App extends React.Component {
   render() {
     return (
-      <myContext.Provider value={store}>
+      <Provider value={store}>
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">React 16.3 Context API</h1>
           </header>
+
           <h2>Things to do today:</h2>
-          <myContext.Consumer>
+
+          <Consumer>
             {state =>
               state.todo.map((todo, i) => (
                 <h4 key={i}>
@@ -33,13 +36,11 @@ class App extends React.Component {
                 </h4>
               ))
             }
-          </myContext.Consumer>
+          </Consumer>
         </div>
-      </myContext.Provider>
+      </Provider>
     );
   }
 }
 
 export default App;
-
-// "I am the machine!!!"
