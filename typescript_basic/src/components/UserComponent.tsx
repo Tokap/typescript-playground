@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import UserInterface from '../interfaces/UserInterface'
+import { Person } from '../interfaces/ApiInterfaces'
 
-export default class UserComponent extends React.Component<UserInterface, {}> {
+export default class UserComponent extends React.Component<Person, {}> {
 
-    constructor(props: UserInterface) {
+    constructor(props: Person) {
         super(props);
     }
     render() {
