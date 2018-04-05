@@ -4,12 +4,22 @@
   "description": "Basic TypeScript Setup",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack",
+    "start": "webpack && open ./src/index.html"
   },
   "author": "Patrick Allen",
   "license": "ISC",
   "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "ts-loader": "^4.1.0",
     "webpack": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.3.5",
+    "@types/react-dom": "^16.0.4",
+    "typescript": "^2.8.1",
+    "webpack-cli": "^2.0.13"
   }
 }

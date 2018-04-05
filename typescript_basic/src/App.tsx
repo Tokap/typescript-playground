@@ -1,20 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import './App.css';
+import FirstComponent from './components/ExampleComponent'
+import UserComponent from './components/UserComponent'
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Let\'s Make a Cool Calendar</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;
+ReactDOM.render(
+  <div>
+    <h1>Hello, Welcome to the first page</h1>
+    <FirstComponent />
+    <UserComponent name="Logrocket" age={105} address="get me if you can" dob={new Date()} />
+  </div>,
+  document.getElementById("root")
+);
