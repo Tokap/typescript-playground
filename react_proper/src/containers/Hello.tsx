@@ -22,3 +22,9 @@ export function mapDispatchToProps(
     onDecrement: () => dispatch(actions.decrementEnthusiasm())
   };
 }
+
+// connect will first take mapStateToProps and mapDispatchToProps, and
+// then return another function that we can use to wrap our component.
+// Think that we're "connecting" the container pieces
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hello);
