@@ -18,7 +18,7 @@ import "./index.css";
 // --- React Router Imports
 import { BrowserRouter, Route } from "react-router-dom";
 
-// Instantiate Local Store with Type definition
+// Instantiate Local Store with Type definition & Reducer
 const store = createStore<StoreState>(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: "TypeScript"

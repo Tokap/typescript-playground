@@ -10,7 +10,7 @@ export interface Props {
   onDecrement?: () => void;
 }
 
-// Stateless Functional Component. Good when no internal state needed.
+// Notice how the function knows the type sig of the deconstructed Props interface.
 function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
   if (enthusiasmLevel <= 0) {
     throw new Error("You could be a little more enthusiastic. :D");
