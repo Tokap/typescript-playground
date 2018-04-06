@@ -18,7 +18,7 @@ import { StoreState } from "./types/index";
 import { enthusiasm } from "./reducers/index";
 
 // --- React Router Imports
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
 
 // Instantiate Local Store with Type definition
 const store = createStore<StoreState>(enthusiasm, {
@@ -26,11 +26,25 @@ const store = createStore<StoreState>(enthusiasm, {
   languageName: "TypeScript"
 });
 
+const RouterHello = () => (
+  <Provider store={store}>
+    <Hello />
+  </Provider>
+);
+
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store={store}>
-      <Hello />
-    </Provider>
+    <div>
+      <ul>
+        <li>
+          <NavLink to="/" activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+      </ul>
+
+      <Route path="/" component={RouterHello} exact={true} />
+    </div>
   </BrowserRouter>,
   document.getElementById("root") as HTMLElement // Declare Definite Return
 );
