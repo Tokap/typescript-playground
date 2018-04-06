@@ -4,6 +4,18 @@ import "./App.css";
 const logo = require("./logo.svg");
 
 class App extends React.Component {
+  // Setup For Top Level Components:
+
+  // Generic Update Functions
+  updateSimpleField(fieldName: string, value: string | number) {
+    this.setState({ [fieldName]: value });
+  }
+
+  toggleField(fieldName: string) {
+    this.setState({ [fieldName]: !this.state[fieldName] });
+  }
+
+  // Render amalgamated Application
   render() {
     return (
       <div className="App">

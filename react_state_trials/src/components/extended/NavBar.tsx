@@ -7,12 +7,12 @@ class NavBar extends React.Component {
       <ul>
         <li>
           <NavLink to="/" activeClassName="active">
-            Hello
+            Goodbye
           </NavLink>
         </li>
         <li>
-          <NavLink to="/goodbye" activeClassName="active">
-            Goodbye
+          <NavLink to="/text" activeClassName="active">
+            TextSection
           </NavLink>
         </li>
       </ul>
