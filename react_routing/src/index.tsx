@@ -30,8 +30,6 @@ const RouterHello = () => (
   </Provider>
 );
 
-// const RouterGoodbye = () => <Goodbye />;
-
 ReactDOM.render(
   <BrowserRouter>
     <div>
