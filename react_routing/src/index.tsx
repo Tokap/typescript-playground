@@ -24,21 +24,17 @@ const store = createStore<StoreState>(enthusiasm, {
   languageName: "TypeScript"
 });
 
-const RouterHello = () => (
-  <Provider store={store}>
-    <Hello />
-  </Provider>
-);
-
 ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <NavBar />
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>
+        <NavBar />
 
-      <Route path="/" component={RouterHello} exact={true} />
-      <Route path="/goodbye" component={Goodbye} exact={true} />
-    </div>
-  </BrowserRouter>,
+        <Route path="/" component={Hello} exact={true} />
+        <Route path="/goodbye" component={Goodbye} exact={true} />
+      </div>
+    </BrowserRouter>
+  </Provider>,
 
   document.getElementById("root") as HTMLElement
 );
