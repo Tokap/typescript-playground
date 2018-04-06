@@ -39,6 +39,7 @@ ReactDOM.render(
       <Route path="/goodbye" component={Goodbye} exact={true} />
     </div>
   </BrowserRouter>,
+
   document.getElementById("root") as HTMLElement
 );
 

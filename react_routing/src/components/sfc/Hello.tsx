@@ -31,7 +31,7 @@ function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
 
 export default Hello;
 
-// Enthusiasm Helper
+// Helper
 function getExclamationMarks(numChars: number) {
   return Array(numChars + 1).join("!");
 }
