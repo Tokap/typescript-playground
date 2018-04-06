@@ -10,6 +10,11 @@ The following flag configs create-react-app to TypeScript:
 Further Explanations and Documentation Available:
 https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter
 
+If we need customization well beyond create-react-app (i.e. use webpack):
+`npm run eject`
+
+The above command opts us out of create-react-app, but cannot be undone.
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
