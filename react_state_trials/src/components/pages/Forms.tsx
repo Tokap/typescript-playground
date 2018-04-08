@@ -14,7 +14,6 @@ const renderTextHolder = (topLevelState: State, fieldName: string) => {
       </h2>
       <TextHolder
         fieldName={fieldName}
-        textValue={topLevelState[fieldName]}
         setTopLevelState={setTopLevelState}
       />
     </div>
