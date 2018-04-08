@@ -1,3 +1,18 @@
 .ns8-button {
   background-color: red;
 }
+
+.ns8-button.sm {
+  background-color: yellow;
+  width: 50%;
+}
+
+.ns8-button.md {
+  background-color: green;
+  width: 70%;
+}
+
+.ns8-button.lg {
+  background-color: blue;
+  width: 90%;
+}
