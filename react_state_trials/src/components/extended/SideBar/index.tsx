@@ -88,7 +88,9 @@ class NavSelection extends React.Component<NavDetails, SubNavState> {
   }
 
   renderDropdownToggle() {
-    return (<i className="fa fa-angle-left" onClick={() => this.toggleDropActive()} />);
+    return this.state.active
+      ? (<i className="fa fa-angle-down" onClick={() => this.toggleDropActive()} />)
+      : (<i className="fa fa-angle-left" onClick={() => this.toggleDropActive()} />);
   }
 
   toggleDropActive() {
