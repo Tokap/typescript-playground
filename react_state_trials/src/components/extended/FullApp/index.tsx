@@ -20,51 +20,26 @@ import sideBarList from "../SideBar/AppSpecific";
 class FullApp extends React.Component<{}, State> {
   constructor(props: Object) {
     super(props);
-    // -- Set Starting State
+
     this.state = {
-      // -- Page State
-      currentPage: 1,
-      maxPage: 6, // -- User data
+      // -- User State
       userId: 1,
       name: "",
       address: "",
       phone: "",
+
       // State Functions:
       setTopLevelState: this.setState.bind(this)
     };
-
-    this.getState = this.getState.bind(this);
-  }
-
-  getState() {
-    return this.state;
   }
 
   render() {
-    console.info("This is state: ", this.state);
-
     return (
       <BrowserRouter>
         <div className="flex-grid" style={{ height: "100%" }}>
           <SideBar navDetails={sideBarList} />
 
           <Route path="/" component={Overview} exact={true} />
-
-          {/* <Route
-            path="/text"
-            render={() => {
-              const { name, setTopLevelState } = this.state;
-
-              return (
-                <TextHolder
-                  fieldName="name"
-                  textValue={name}
-                  setTopLevelState={setTopLevelState}
-                />
-              );
-            }}
-            exact={true}
-          /> */}
 
           <Route
             path="/form/page"

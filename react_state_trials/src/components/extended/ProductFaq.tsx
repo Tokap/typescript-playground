@@ -13,4 +13,4 @@ class ProductFaq extends React.Component {
   }
 }
 
-export default QueryLanguage;
+export default ProductFaq;

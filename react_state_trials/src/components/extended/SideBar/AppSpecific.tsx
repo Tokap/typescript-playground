@@ -14,7 +14,7 @@ const testArr = [
   { fieldName: "Query Language", path: "/query_language", faIcon: "fa-database" },
   { fieldName: "Tools", path: "/tools", faIcon: "fa fa-wrench" },
   { fieldName: "Product FAQ", path: "/product_faq" },
-  { fieldName: "Tutorials", path: "/tutorials" },
+  { fieldName: "Tutorials", path: "/form/page" },
 ];
 
 export default testArr;
