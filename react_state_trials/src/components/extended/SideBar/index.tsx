@@ -12,11 +12,11 @@ export interface BasicRoute {
 export interface NavDetails extends BasicRoute {
   dropDownOptions?: Array<BasicRoute>;
   faIcon?: string;
-  headerImage?: string;
 }
 
 export interface SubNavProps {
   navPillList: Array<BasicRoute>;
+  display: boolean;
 }
 
 export interface SubNavState {
@@ -24,9 +24,11 @@ export interface SubNavState {
 }
 
 export interface SideBarProps {
+  headerImage?: string;
   navDetails: Array<NavDetails>;
 }
-
+// ------------------------------------------
+// ------------------------------------------
 // Make className string from Route Details
 function classNameFactory(classList?: Array<string>) {
   return classList == null
@@ -34,61 +36,63 @@ function classNameFactory(classList?: Array<string>) {
     : classList.reduce((nameString, className) => (`${nameString} ${className}`), "navPill");
 }
 
-// Class To Create Optional SubNavComponent
+// Component To Create Optional SubNavComponent
 class SubNavSelection extends React.Component<SubNavProps, SubNavState> {
   constructor(props: SubNavProps) {
     super(props);
-    this.state = { active: false };
-
-    this.toggleActive = this.toggleActive.bind(this);
   }
 
-  toggleActive() {
-    this.setState({ active: !this.state.active });
-  }
+  renderNavPill(pathDetails: BasicRoute, i: number) {
 
-  renderNavPills(dropDownOptions: Array<BasicRoute>) {
-    return dropDownOptions.map((pathDetails: BasicRoute, i: number) => {
-      const { classList, fieldName, path } = pathDetails;
-      const classes = classNameFactory(classList);
+    const { classList, fieldName, path } = pathDetails;
+    const classes = classNameFactory(classList);
 
-      return (
-        <NavLink to={path} activeClassName="active" className={classes} key={i}>
+    return (
+      <li key={i} className="subpill">
+        <NavLink to={path} activeClassName="active" className={classes}>
           {fieldName}
         </NavLink>
-      );
-    });
+      </li>
+    );
+
   }
 
   render() {
-    const { navPillList } = this.props;
+    const { display, navPillList } = this.props;
 
     return (
-      <div style={{ display: "inline-block", margin: "0 0 0 10px" }}>
-
-        <i className="fa fa-angle-left" onClick={() => this.toggleActive()} />
-
-        <ul className={`sub-nav-container ${this.state.active ? "" : "navbar-hide"}`}>
-          {this.renderNavPills(navPillList)}
-        </ul>
-      </div>
+      <ul className={`subNavContainer ${display ? "" : "navbar-hide"}`}>
+        {navPillList.map((pill, i) => this.renderNavPill(pill, i))}
+      </ul>
     );
   }
 }
 
-// Wrapper to Review Nullable Field
-function makeDropDown(dropDownOptions?: Array<BasicRoute>) {
-  if (dropDownOptions == null || dropDownOptions.length === 0) {
-    return null;
-  }
-
-  return <SubNavSelection navPillList={dropDownOptions} />;
-}
-
-// Individual Nav Row & Maybe SubList
+// Component For Individual Nav Row & Maybe SubList
 class NavSelection extends React.Component<NavDetails, SubNavState> {
   constructor(props: NavDetails) {
     super(props);
+    this.state = { active: false };
+
+    this.makeDropDown = this.makeDropDown.bind(this);
+    this.renderDropdownToggle = this.renderDropdownToggle.bind(this);
+    this.toggleDropActive = this.toggleDropActive.bind(this);
+  }
+
+  makeDropDown(display: boolean, dropDownOptions?: Array<BasicRoute>) {
+    if (dropDownOptions == null || dropDownOptions.length === 0) {
+      return null;
+    }
+
+    return <SubNavSelection navPillList={dropDownOptions} display={display} />;
+  }
+
+  renderDropdownToggle() {
+    return (<i className="fa fa-angle-left" onClick={() => this.toggleDropActive()} />);
+  }
+
+  toggleDropActive() {
+    this.setState({ active: !this.state.active });
   }
 
   render() {
@@ -96,15 +100,16 @@ class NavSelection extends React.Component<NavDetails, SubNavState> {
 
     const classes = classNameFactory(classList);
     const faIconEl = <i className={`fa ${faIcon}`} />;
-    const dropdownInterface = makeDropDown(dropDownOptions);
+    const dropdownInterface = this.makeDropDown(this.state.active, dropDownOptions);
 
     return (
       <li>
         <NavLink to={path} activeClassName="active" className={classes}>
           {faIcon == null ? null : faIconEl}
           {fieldName}
-          {dropdownInterface == null ? null : dropdownInterface}
         </NavLink>
+        {dropdownInterface ? this.renderDropdownToggle() : null}
+        {dropdownInterface}
       </li>
     );
   }
@@ -117,7 +122,7 @@ class SideBar extends React.Component<SideBarProps, {}> {
 
     return (
       <ul className="navBar">
-        {navDetails.map(navPillDetails => (<NavSelection {...navPillDetails} />))}
+        {navDetails.map((navPillDetails, i) => (<NavSelection {...navPillDetails} key={i} />))}
       </ul>
     );
   }

@@ -1,7 +1,22 @@
-.navBar {
+.navBar, .subNavContainer {
   background-color:#2f4050;
+  color: #a7b1c2;
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   list-style: none;
+}
+
+.subPill {
+  text-align: left;
+  font-size: 16;
+  font-weight: 600;
+  display: block;
+  padding: 14px 20px 14px 25px;
+  text-decoration: none;
+}
+
+.navBar div {
+  display: block;
+  font-weight: 600;
 }
 
 .navPill {
@@ -9,7 +24,7 @@
   font-size: 16;
   font-weight: 600;
   color: #a7b1c2;
-  display: block;
+  display: inline-block;
   padding: 14px 20px 14px 25px;
   text-decoration: none;
 }
