@@ -2,30 +2,20 @@
 import * as React from "react";
 
 // --- Redux Imports & General Functionality
-import Goodbye from "./Goodbye"; // Straight Up Component
+import Goodbye from "../Goodbye"; // Straight Up Component
 // import TextHolder from "../sfc/TextHolder";
-import Forms from "../pages/Forms";
+import Forms from "../../pages/Forms";
 // import NavBar from "./NavBar";
-import SideBar from "./SideBar";
+import SideBar from "../SideBar";
+import "./FullApp.css";
 
 // --- React Router Imports
 import { BrowserRouter, Route } from "react-router-dom";
 
 // --- Import Required Types:
-import { State } from "../../types";
+import { State } from "../../../types";
 
-const dropdownTest = [
-  { fieldName: "Drop", path: "/drop", classList: ["yass"] },
-  { fieldName: "Down", path: "/down", classList: ["nooo"] },
-  { fieldName: "Thing", path: "/thing", classList: ["maybe"] },
-];
-
-const testArr = [
-  { fieldName: "Home", path: "/", classList: ["yass"], faIcon: "fa-info-circle", dropDownOptions: dropdownTest },
-  { fieldName: "Goodbye", path: "/goodbye" },
-  { fieldName: "TextSection", path: "/forms" },
-  { fieldName: "Option 4", path: "/option_4" }
-];
+import sideBarList from "../SideBar/AppSpecific";
 
 // Wrapped Application to Store State
 class FullApp extends React.Component<{}, State> {
@@ -53,12 +43,11 @@ class FullApp extends React.Component<{}, State> {
 
   render() {
     console.info("This is state: ", this.state);
-    console.info("This is state: ", testArr);
 
     return (
       <BrowserRouter>
-        <div>
-          <SideBar navDetails={testArr} />
+        <div className="flex-grid" style={{ height: "100%" }}>
+          <SideBar navDetails={sideBarList} />
 
           <Route path="/" component={Goodbye} exact={true} />
 

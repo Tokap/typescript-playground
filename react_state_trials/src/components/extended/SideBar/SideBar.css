@@ -2,6 +2,7 @@
   background-color:#2f4050;
   color: #a7b1c2;
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
   list-style: none;
 }
 
@@ -12,6 +13,13 @@
   display: block;
   padding: 14px 20px 14px 25px;
   text-decoration: none;
+}
+
+.navBar {
+  height: 100%;
+  margin-right: 200px;
+  width: 200px;
+  z-index: 10;
 }
 
 .navBar div {
