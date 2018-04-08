@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // --- Redux Imports & General Functionality
-import Overview from "../Overview"; // Straight Up Component
+import Overview from "../../pages/Overview"; // Straight Up Component
 // import TextHolder from "../sfc/TextHolder";
 import Forms from "../../pages/Forms";
 import SideBar from "../SideBar";
