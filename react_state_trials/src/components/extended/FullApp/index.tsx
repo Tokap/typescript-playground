@@ -2,10 +2,9 @@
 import * as React from "react";
 
 // --- Redux Imports & General Functionality
-import Goodbye from "../Goodbye"; // Straight Up Component
+import Overview from "../Overview"; // Straight Up Component
 // import TextHolder from "../sfc/TextHolder";
 import Forms from "../../pages/Forms";
-// import NavBar from "./NavBar";
 import SideBar from "../SideBar";
 import "./FullApp.css";
 
@@ -49,7 +48,7 @@ class FullApp extends React.Component<{}, State> {
         <div className="flex-grid" style={{ height: "100%" }}>
           <SideBar navDetails={sideBarList} />
 
-          <Route path="/" component={Goodbye} exact={true} />
+          <Route path="/" component={Overview} exact={true} />
 
           {/* <Route
             path="/text"
