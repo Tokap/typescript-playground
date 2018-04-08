@@ -3,15 +3,29 @@ import * as React from "react";
 
 // --- Redux Imports & General Functionality
 import Goodbye from "./Goodbye"; // Straight Up Component
-import TextHolder from "../sfc/TextHolder";
+// import TextHolder from "../sfc/TextHolder";
 import Forms from "../pages/Forms";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import SideBar from "./SideBar";
 
 // --- React Router Imports
 import { BrowserRouter, Route } from "react-router-dom";
 
 // --- Import Required Types:
 import { State } from "../../types";
+
+const dropdownTest = [
+  { fieldName: "Drop", path: "/drop", classList: ["yass"] },
+  { fieldName: "Down", path: "/down", classList: ["nooo"] },
+  { fieldName: "Thing", path: "/thing", classList: ["maybe"] },
+];
+
+const testArr = [
+  { fieldName: "Home", path: "/", classList: ["yass"], faIcon: "fa-info-circle", dropDownOptions: dropdownTest },
+  { fieldName: "Goodbye", path: "/goodbye" },
+  { fieldName: "TextSection", path: "/forms" },
+  { fieldName: "Option 4", path: "/option_4" }
+];
 
 // Wrapped Application to Store State
 class FullApp extends React.Component<{}, State> {
@@ -39,14 +53,16 @@ class FullApp extends React.Component<{}, State> {
 
   render() {
     console.info("This is state: ", this.state);
+    console.info("This is state: ", testArr);
+
     return (
       <BrowserRouter>
         <div>
-          <NavBar />
+          <SideBar navDetails={testArr} />
 
           <Route path="/" component={Goodbye} exact={true} />
 
-          <Route
+          {/* <Route
             path="/text"
             render={() => {
               const { name, setTopLevelState } = this.state;
@@ -60,7 +76,7 @@ class FullApp extends React.Component<{}, State> {
               );
             }}
             exact={true}
-          />
+          /> */}
 
           <Route
             path="/form/page"

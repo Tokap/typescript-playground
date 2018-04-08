@@ -1,0 +1,28 @@
+.navBar {
+  background-color:#2f4050;
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  list-style: none;
+}
+
+.navPill {
+  text-align: left;
+  font-size: 16;
+  font-weight: 600;
+  color: #a7b1c2;
+  display: block;
+  padding: 14px 20px 14px 25px;
+  text-decoration: none;
+}
+
+.navPill:hover {
+  color: #78C143;
+  cursor: pointer;
+}
+
+.navPill i {
+  margin-right: 6px;
+}
+
+.navbar-hide {
+  display: none;
+}
