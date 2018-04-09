@@ -11,9 +11,9 @@
 }
 
 .ns8-button {
-  background: linear-gradient(115deg, #73B268 0,#5B7F59 100%);
+  background: linear-gradient(115deg, #73b268 0, #5b7f59 100%);
   border: 0;
-  box-shadow: 0 7px 10px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.15);
   color: #fff;
   height: 40px;
   text-transform: uppercase;

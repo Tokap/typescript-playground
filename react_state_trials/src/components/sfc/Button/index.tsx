@@ -7,13 +7,7 @@ export interface ButtonOptions {
   onClickFn: () => void;
 }
 
-function StandardButton(
-  { classList,
-    onClickFn,
-    size,
-    text
-  }: ButtonOptions
-) {
+function StandardButton({ classList, onClickFn, size, text }: ButtonOptions) {
   let classes = "ns8-button";
 
   // Configure Button Size Style
@@ -29,7 +23,10 @@ function StandardButton(
 
   // Add Additional Classes
   if (classList != null || classList !== undefined) {
-    classes = classList.reduce((acc, className) => (`${acc} ${className}`), classes);
+    classes = classList.reduce(
+      (acc, className) => `${acc} ${className}`,
+      classes
+    );
   }
 
   // Render Button1

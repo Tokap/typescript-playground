@@ -24,7 +24,7 @@ export default class Example extends React.Component<{}, CalendarState> {
     return {
       from: null,
       to: null,
-      enteredTo: null, // Keep track of the last day for mouseEnter.
+      enteredTo: null // Keep track of the last day for mouseEnter.
     };
   }
 
@@ -44,12 +44,12 @@ export default class Example extends React.Component<{}, CalendarState> {
       this.setState({
         from: day as Date,
         to: null,
-        enteredTo: null,
+        enteredTo: null
       });
     } else {
       this.setState({
         to: day as Date,
-        enteredTo: day as Date,
+        enteredTo: day as Date
       });
     }
   }
@@ -58,7 +58,7 @@ export default class Example extends React.Component<{}, CalendarState> {
     const { from, to } = this.state;
     if (!this.isSelectingFirstDay(from, to, day)) {
       this.setState({
-        enteredTo: day as Date,
+        enteredTo: day as Date
       });
     }
   }

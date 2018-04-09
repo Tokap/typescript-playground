@@ -16,7 +16,10 @@ const mockUpdateFn = (fieldName: string) => {
 
 // --- Tests
 it("renders correctly when foundational parameters provided", () => {
-  const textHolderComponent = TextHolder({ fieldName: "testField", setTopLevelState: mockUpdateFn });
+  const textHolderComponent = TextHolder({
+    fieldName: "testField",
+    setTopLevelState: mockUpdateFn
+  });
 
   const textHolder = enzyme.shallow(textHolderComponent);
 
@@ -26,7 +29,10 @@ it("renders correctly when foundational parameters provided", () => {
 // TODO: Write something that actually throws or remove
 it("throws when the enthusiasm level is negative", () => {
   expect(() => {
-    const textHolderComponent = TextHolder({ fieldName: "testField", setTopLevelState: mockUpdateFn });
+    const textHolderComponent = TextHolder({
+      fieldName: "testField",
+      setTopLevelState: mockUpdateFn
+    });
 
     enzyme.shallow(textHolderComponent);
   }).toThrow();

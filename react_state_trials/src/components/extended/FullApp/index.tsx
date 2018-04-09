@@ -40,7 +40,7 @@ class FullApp extends React.Component<{}, State> {
   }
 
   // The pattern should be to pass in the top level state to the page component.
-  // The page component will then deconstruct and pass through what it needs to 
+  // The page component will then deconstruct and pass through what it needs to
   // render the components it holds.
   render() {
     return (
@@ -52,33 +52,25 @@ class FullApp extends React.Component<{}, State> {
 
           <Route
             path="/form/page"
-            render={() => (<Forms topLevelState={this.state} />)}
+            render={() => <Forms topLevelState={this.state} />}
             exact={true}
           />
 
-          <Route
-            path="/tutorials"
-            render={() => (<Tutorials />)}
-            exact={true}
-          />
+          <Route path="/tutorials" render={() => <Tutorials />} exact={true} />
 
           <Route
             path="/query_language"
-            render={() => (<QueryLanguage />)}
+            render={() => <QueryLanguage />}
             exact={true}
           />
 
           <Route
             path="/access_tokens"
-            render={() => (<AccessTokens />)}
+            render={() => <AccessTokens />}
             exact={true}
           />
 
-          <Route
-            path="/faq"
-            render={() => (<ProductFaq />)}
-            exact={true}
-          />
+          <Route path="/faq" render={() => <ProductFaq />} exact={true} />
         </div>
       </BrowserRouter>
     );

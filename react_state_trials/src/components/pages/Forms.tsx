@@ -12,10 +12,7 @@ const renderTextHolder = (topLevelState: State, fieldName: string) => {
       <h2>
         {fieldName}: {topLevelState[fieldName]}
       </h2>
-      <TextHolder
-        fieldName={fieldName}
-        setTopLevelState={setTopLevelState}
-      />
+      <TextHolder fieldName={fieldName} setTopLevelState={setTopLevelState} />
     </div>
   );
 };

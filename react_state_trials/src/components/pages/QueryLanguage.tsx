@@ -6,7 +6,9 @@ class QueryLanguage extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Query Language.</h1>
-          <h2 className="App-content">Here are some words regarding Query Languages.</h2>
+          <h2 className="App-content">
+            Here are some words regarding Query Languages.
+          </h2>
         </header>
       </div>
     );

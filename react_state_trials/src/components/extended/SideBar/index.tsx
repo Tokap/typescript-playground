@@ -33,7 +33,10 @@ export interface SideBarProps {
 function classNameFactory(classList?: Array<string>) {
   return classList == null
     ? "navPill"
-    : classList.reduce((nameString, className) => (`${nameString} ${className}`), "navPill");
+    : classList.reduce(
+        (nameString, className) => `${nameString} ${className}`,
+        "navPill"
+      );
 }
 
 // Component To Create Optional SubNavComponent
@@ -43,7 +46,6 @@ class SubNavSelection extends React.Component<SubNavProps, SubNavState> {
   }
 
   renderNavPill(pathDetails: BasicRoute, i: number) {
-
     const { classList, fieldName, path } = pathDetails;
     const classes = classNameFactory(classList);
 
@@ -54,7 +56,6 @@ class SubNavSelection extends React.Component<SubNavProps, SubNavState> {
         </NavLink>
       </li>
     );
-
   }
 
   render() {
@@ -88,9 +89,11 @@ class NavSelection extends React.Component<NavDetails, SubNavState> {
   }
 
   renderDropdownToggle() {
-    return this.state.active
-      ? (<i className="fa fa-angle-down" onClick={() => this.toggleDropActive()} />)
-      : (<i className="fa fa-angle-left" onClick={() => this.toggleDropActive()} />);
+    return this.state.active ? (
+      <i className="fa fa-angle-down" onClick={() => this.toggleDropActive()} />
+    ) : (
+      <i className="fa fa-angle-left" onClick={() => this.toggleDropActive()} />
+    );
   }
 
   toggleDropActive() {
@@ -102,7 +105,10 @@ class NavSelection extends React.Component<NavDetails, SubNavState> {
 
     const classes = classNameFactory(classList);
     const faIconEl = <i className={`fa ${faIcon}`} />;
-    const dropdownInterface = this.makeDropDown(this.state.active, dropDownOptions);
+    const dropdownInterface = this.makeDropDown(
+      this.state.active,
+      dropDownOptions
+    );
 
     return (
       <li>
@@ -124,7 +130,9 @@ class SideBar extends React.Component<SideBarProps, {}> {
 
     return (
       <ul className="navBar">
-        {navDetails.map((navPillDetails, i) => (<NavSelection {...navPillDetails} key={i} />))}
+        {navDetails.map((navPillDetails, i) => (
+          <NavSelection {...navPillDetails} key={i} />
+        ))}
       </ul>
     );
   }

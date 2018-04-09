@@ -6,7 +6,9 @@ class Tutorials extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Tutorials.</h1>
-          <h2 className="App-content">Here are some words regarding a tutorial.</h2>
+          <h2 className="App-content">
+            Here are some words regarding a tutorial.
+          </h2>
         </header>
       </div>
     );
