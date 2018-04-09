@@ -58,3 +58,10 @@ declare module "react-day-picker" {
     selectedDays?: Modifier | Modifier[];
   }
 }
+
+// Also, in props.d.ts:
+export interface DayPickerProps {
+  // ...
+  fromMonth?: Date | null;
+  // ...
+}

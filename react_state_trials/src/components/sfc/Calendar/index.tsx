@@ -26,6 +26,7 @@ function isDayBefore(d1: MaybeDate, d2: MaybeDate) {
   return day1 < day2;
 }
 
+// --- Proper Component Functionality
 export default class Example extends React.Component<{}, CalendarState> {
   constructor(props: Object) {
     super(props);
@@ -39,7 +40,7 @@ export default class Example extends React.Component<{}, CalendarState> {
     return {
       from: null,
       to: null,
-      enteredTo: null // Keep track of the last day for mouseEnter.
+      enteredTo: null
     };
   }
 
@@ -87,7 +88,6 @@ export default class Example extends React.Component<{}, CalendarState> {
 
     // Existing Type Signature Expects non-nullable fields for these.
     // This has been manually adjusted in node_modules - need to do better.
-    const confirmedFrom: Date = from == null ? new Date() : from;
     const modifiers = { start: from, end: to };
     const disabledDays = { before: from };
     const selectedDays = [from, { from: from, to: enteredTo }];
@@ -97,8 +97,8 @@ export default class Example extends React.Component<{}, CalendarState> {
         <DayPicker
           className="Range"
           numberOfMonths={2}
-          fromMonth={confirmedFrom} // Package Types This Wrong
-          selectedDays={selectedDays} // Package Types This Wrong
+          fromMonth={from} // Package Types This Wrong - Must be nullable
+          selectedDays={selectedDays} // Package Types This Wrong - Must be nullable
           disabledDays={disabledDays}
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
