@@ -33,6 +33,8 @@ export default class Example extends React.Component<{}, CalendarState> {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
+    this.renderSelectMessage = this.renderSelectMessage.bind(this);
+
     this.state = this.getInitialState();
   }
 
@@ -83,6 +85,27 @@ export default class Example extends React.Component<{}, CalendarState> {
     this.setState(this.getInitialState());
   }
 
+  renderSelectMessage(): JSX.Element {
+    if (!!this.state.from && !!this.state.to) {
+      // Holds all data:
+      return (
+        <button className="link" onClick={this.handleResetClick}>
+          Reset
+        </button>
+      );
+    } else if (!!this.state.from && !this.state.to) {
+      // Holds start date only:
+      return <span>"Please select the last day.";</span>;
+    } else {
+      // Otherwise, we have nothing:
+      return (
+        <button className="link" onClick={this.handleResetClick}>
+          Reset
+        </button>
+      );
+    }
+  }
+
   render() {
     const { from, to, enteredTo } = this.state;
 
@@ -97,27 +120,18 @@ export default class Example extends React.Component<{}, CalendarState> {
         <DayPicker
           className="Range"
           numberOfMonths={2}
-          fromMonth={from} // Package Types This Wrong - Must be nullable
-          selectedDays={selectedDays} // Package Types This Wrong - Must be nullable
-          disabledDays={disabledDays}
+          fromMonth={from}
+          selectedDays={
+            selectedDays // Package Types This Wrong - Must be nullable
+          }
+          disabledDays={
+            disabledDays // Package Types This Wrong - Must be nullable
+          }
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
           onDayMouseEnter={this.handleDayMouseEnter}
         />
-        <div>
-          {!from && !to && "Please select the first day."}
-          {from && !to && "Please select the last day."}
-          {from &&
-            to &&
-            `Selected from ${from.toLocaleDateString()} to
-                ${to.toLocaleDateString()}`}{" "}
-          {from &&
-            to && (
-              <button className="link" onClick={this.handleResetClick}>
-                Reset
-              </button>
-            )}
-        </div>
+        <div>{this.renderSelectMessage()}</div>
       </div>
     );
   }
