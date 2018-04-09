@@ -2,15 +2,6 @@ import * as React from "react";
 
 import "./TextHolder.css";
 
-// enum MutableStateOptions {
-//   "name",
-//   "currentPage",
-//   "maxPage",
-//   "userId"
-// }
-
-// type MutableStateOption = "currentPage" | "maxPage" | "userId" | "name";
-
 export interface Props {
   fieldName: string;
   setTopLevelState: Function;
@@ -22,9 +13,7 @@ function TextHolder({ fieldName, setTopLevelState }: Props) {
     <input
       type="text"
       name={fieldName}
-      onChange={e =>
-        setTopLevelState({ [fieldName]: e.target.value })
-      }
+      onChange={e => setTopLevelState({ [fieldName]: e.target.value })}
     />
   );
 }
