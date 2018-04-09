@@ -1,40 +1,17 @@
-import * as React from "react";
-// TODO: Review the package details and create custom type for DateUtils
-import DayPicker from "react-day-picker";
+import React from "react";
+
+import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
+import "./DayPickerPlus.css";
 
-type MaybeDate = Date | null;
-
-export interface CalendarState {
-  from: MaybeDate;
-  to: MaybeDate;
-  enteredTo: MaybeDate;
-}
-
-// --- Helper Functions
-function clone(d: Date) {
-  return new Date(d.getTime());
-}
-
-function isDayBefore(d1: MaybeDate, d2: MaybeDate) {
-  if (d1 == null || d2 == null) {
-    return false;
-  }
-
-  const day1 = clone(d1).setHours(0, 0, 0, 0);
-  const day2 = clone(d2).setHours(0, 0, 0, 0);
-  return day1 < day2;
-}
-
-export default class Example extends React.Component<{}, CalendarState> {
-  constructor(props: Object) {
+export default class Example extends React.Component {
+  constructor(props) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
     this.state = this.getInitialState();
   }
-
   getInitialState() {
     return {
       from: null,
@@ -43,13 +20,13 @@ export default class Example extends React.Component<{}, CalendarState> {
     };
   }
 
-  isSelectingFirstDay(from: MaybeDate, to: MaybeDate, day: MaybeDate) {
-    const isBeforeFirstDay = from && isDayBefore(day, from);
+  isSelectingFirstDay(from, to, day) {
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
   }
 
-  handleDayClick(day: Date) {
+  handleDayClick(day) {
     const { from, to } = this.state;
     if (from && to && day >= from && day <= to) {
       this.handleResetClick();
@@ -57,23 +34,23 @@ export default class Example extends React.Component<{}, CalendarState> {
     }
     if (this.isSelectingFirstDay(from, to, day)) {
       this.setState({
-        from: day as Date,
+        from: day,
         to: null,
         enteredTo: null
       });
     } else {
       this.setState({
-        to: day as Date,
-        enteredTo: day as Date
+        to: day,
+        enteredTo: day
       });
     }
   }
 
-  handleDayMouseEnter(day: MaybeDate) {
+  handleDayMouseEnter(day) {
     const { from, to } = this.state;
     if (!this.isSelectingFirstDay(from, to, day)) {
       this.setState({
-        enteredTo: day as Date
+        enteredTo: day
       });
     }
   }
@@ -84,21 +61,25 @@ export default class Example extends React.Component<{}, CalendarState> {
 
   render() {
     const { from, to, enteredTo } = this.state;
+    const modifiers = { start: from, end: enteredTo };
+    const disabledDays = { before: this.state.from };
+    const selectedDays = [from, { from, to: enteredTo }];
 
-    // Existing Type Signature Expects non-nullable fields for these.
-    // This has been manually adjusted in node_modules - need to do better.
-    const confirmedFrom: Date = from == null ? new Date() : from;
-    const modifiers = { start: from, end: to };
-    const disabledDays = { before: from };
-    const selectedDays = [from, { from: from, to: enteredTo }];
+    console.info("Here are our: from: ", from);
+    console.info("Here are our: to: ", to);
+    console.info("Here are our: enteredTo: ", enteredTo);
+
+    console.info("More Stuff: modifiers: ", modifiers);
+    console.info("More Stuff: disabledDays: ", disabledDays);
+    console.info("More Stuff: selectedDays: ", selectedDays);
 
     return (
       <div>
         <DayPicker
           className="Range"
           numberOfMonths={2}
-          fromMonth={confirmedFrom} // Package Types This Wrong
-          selectedDays={selectedDays} // Package Types This Wrong
+          fromMonth={from}
+          selectedDays={selectedDays}
           disabledDays={disabledDays}
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
