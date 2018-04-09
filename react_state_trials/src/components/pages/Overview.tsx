@@ -1,4 +1,5 @@
 import * as React from "react";
+import DatePicker from "../sfc/Calendar";
 
 class Overview extends React.Component {
   render() {
@@ -9,6 +10,9 @@ class Overview extends React.Component {
           <h2 className="App-content">
             Here are some words regarding an Overview.
           </h2>
+
+          <h3>Please select the date range you're interested in.</h3>
+          <DatePicker />
         </header>
       </div>
     );
