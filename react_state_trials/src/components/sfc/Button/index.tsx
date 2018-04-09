@@ -32,7 +32,7 @@ function StandardButton(
     classes = classList.reduce((acc, className) => (`${acc} ${className}`), classes);
   }
 
-  // Render Button
+  // Render Button1
   return (
     <button onClick={onClickFn} className={classes}>
       {text}

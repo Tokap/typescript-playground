@@ -5,8 +5,8 @@ const dropdownTest = [
 ];
 
 const testArr = [
-  { fieldName: "Overview", path: "/oveview", classList: [], faIcon: "fa-info-circle", dropDownOptions: dropdownTest },
-  { fieldName: "Website Tracking", path: "/website_tracking", faIcon: "fa-desktop" },
+  { fieldName: "Overview", path: "/", classList: [], faIcon: "fa-info-circle", dropDownOptions: dropdownTest },
+  { fieldName: "Website Tracking", path: "/form/page", faIcon: "fa-desktop" },
   { fieldName: "Access Tokens", path: "/access_tokens", faIcon: "fa-sign-in" },
   { fieldName: "REST API", path: "/rest_api", faIcon: "fa fa-exchange" },
 
@@ -14,7 +14,7 @@ const testArr = [
   { fieldName: "Query Language", path: "/query_language", faIcon: "fa-database" },
   { fieldName: "Tools", path: "/tools", faIcon: "fa fa-wrench" },
   { fieldName: "Product FAQ", path: "/product_faq" },
-  { fieldName: "Tutorials", path: "/form/page" },
+  { fieldName: "Tutorials", path: "/tutorials" },
 ];
 
 export default testArr;
