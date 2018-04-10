@@ -101,7 +101,7 @@ export default class Example extends React.Component<
             {`Selected from ${from.toLocaleDateString()} to ${to.toLocaleDateString()}`}
           </span>
           <br /> {/* Poor Man's Break - Move to CSS */}
-          <button className="link" onClick={this.handleResetClick}>
+          <button className="link ResetButton" onClick={this.handleResetClick}>
             Reset
           </button>
         </div>

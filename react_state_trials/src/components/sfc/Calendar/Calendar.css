@@ -7,3 +7,16 @@
 .Range .DayPicker-Day {
   border-radius: 0 !important;
 }
+
+.ResetButton {
+  background: transparent;
+  border-color: black;
+  border-radius: 15%;
+  color: black;
+}
+
+.ResetButton:hover {
+  cursor: pointer;
+  border-color: green;
+  color: green;
+}
