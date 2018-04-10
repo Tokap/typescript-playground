@@ -2,6 +2,7 @@ import * as React from "react";
 // TODO: Review the package details and create custom type for DateUtils
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
+import "./Calendar.css";
 
 type MaybeDate = Date | null;
 
@@ -94,6 +95,7 @@ export default class Example extends React.Component<{}, CalendarState> {
           <span>
             {`Selected from ${from.toLocaleDateString()} to ${to.toLocaleDateString()}`}
           </span>
+          <br /> {/* Poor Man's Break - Move to CSS */}
           <button className="link" onClick={this.handleResetClick}>
             Reset
           </button>
@@ -101,10 +103,10 @@ export default class Example extends React.Component<{}, CalendarState> {
       );
     } else if (!!this.state.from && !this.state.to) {
       // Holds start date only:
-      return <span>"Please select the last day.";</span>;
+      return <span>Please select the last day.</span>;
     } else {
       // Otherwise, we have nothing:
-      return <span>"Please select the first day."</span>;
+      return <span>Please select the first day</span>;
     }
   }
 
