@@ -12,6 +12,10 @@ export interface CalendarState {
   enteredTo: MaybeDate;
 }
 
+export interface CalendarProps {
+  updateTopLevelState: () => void;
+}
+
 // --- Helper Functions
 function clone(d: Date) {
   return new Date(d.getTime());
