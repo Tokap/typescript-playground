@@ -4,9 +4,7 @@ import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "./Calendar.css";
 
-import { State } from "../../../types";
-
-type MaybeDate = Date | null;
+import { MaybeDate, State } from "../../../types";
 
 export interface CalendarState {
   from: MaybeDate;
@@ -53,15 +51,18 @@ export default class Example extends React.Component<
   isSelectingFirstDay(from: MaybeDate, to: MaybeDate, day: MaybeDate) {
     const isBeforeFirstDay = from && isDayBefore(day, from);
     const isRangeSelected = from && to;
+
     return !from || isBeforeFirstDay || isRangeSelected;
   }
 
   handleDayClick(day: Date) {
     const { from, to } = this.state;
+
     if (from && to && day >= from && day <= to) {
       this.handleResetClick();
       return;
     }
+
     if (this.isSelectingFirstDay(from, to, day)) {
       this.setState({
         from: day as Date,
@@ -82,6 +83,7 @@ export default class Example extends React.Component<
 
   handleDayMouseEnter(day: MaybeDate) {
     const { from, to } = this.state;
+
     if (!this.isSelectingFirstDay(from, to, day)) {
       this.setState({ enteredTo: day as Date });
     }

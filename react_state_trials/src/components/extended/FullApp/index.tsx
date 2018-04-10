@@ -49,8 +49,6 @@ class FullApp extends React.Component<{}, State> {
   // The page component will then deconstruct and pass through what it needs to
   // render the components it holds.
   render() {
-    console.info("This is our state: ", this.state);
-
     return (
       <BrowserRouter>
         <div className="flex-grid" style={{ height: "100%" }}>

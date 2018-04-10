@@ -1,15 +1,12 @@
-export interface StoreState {
-  languageName: string;
-  enthusiasmLevel: number;
-}
+export type MaybeDate = Date | null;
 
 export interface FieldProps {
   topLevelState: State;
 }
 
-export interface DateTime {
-  to: Date | null;
-  from: Date | null;
+export interface CalendarSelection {
+  to: MaybeDate;
+  from: MaybeDate;
 }
 
 export interface State {
@@ -20,7 +17,8 @@ export interface State {
   name: string;
   address: string;
   phone: string;
-  dateTime: DateTime;
+  dateTime: CalendarSelection;
+
   // State Functions
   setTopLevelState: Function;
 }
