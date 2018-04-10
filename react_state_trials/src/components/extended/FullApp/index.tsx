@@ -27,13 +27,19 @@ class FullApp extends React.Component<{}, State> {
   constructor(props: Object) {
     super(props);
 
-    this.state = {
-      // -- User State
+    this.state = this.getInitialState();
+
+    this.getInitialState = this.getInitialState.bind(this);
+  }
+
+  getInitialState() {
+    // --- Full State Object
+    return {
       userId: 1,
       name: "",
       address: "",
       phone: "",
-
+      dateTime: { from: null, to: null },
       // State Functions:
       setTopLevelState: this.setState.bind(this)
     };
@@ -43,12 +49,18 @@ class FullApp extends React.Component<{}, State> {
   // The page component will then deconstruct and pass through what it needs to
   // render the components it holds.
   render() {
+    console.info("This is our state: ", this.state);
+
     return (
       <BrowserRouter>
         <div className="flex-grid" style={{ height: "100%" }}>
           <SideBar navDetails={sideBarList} />
 
-          <Route path="/" component={Overview} exact={true} />
+          <Route
+            path="/"
+            render={() => <Overview {...this.state} />}
+            exact={true}
+          />
 
           <Route
             path="/form/page"

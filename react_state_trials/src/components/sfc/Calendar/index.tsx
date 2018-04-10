@@ -4,6 +4,8 @@ import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "./Calendar.css";
 
+import { State } from "../../../types";
+
 type MaybeDate = Date | null;
 
 export interface CalendarState {
@@ -12,9 +14,7 @@ export interface CalendarState {
   enteredTo: MaybeDate;
 }
 
-export interface CalendarProps {
-  updateTopLevelState: () => void;
-}
+type CalendarProps = State;
 
 // --- Helper Functions
 function clone(d: Date) {
@@ -32,8 +32,11 @@ function isDayBefore(d1: MaybeDate, d2: MaybeDate) {
 }
 
 // --- Proper Component Functionality
-export default class Example extends React.Component<{}, CalendarState> {
-  constructor(props: Object) {
+export default class Example extends React.Component<
+  CalendarProps,
+  CalendarState
+> {
+  constructor(props: CalendarProps) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
@@ -44,11 +47,7 @@ export default class Example extends React.Component<{}, CalendarState> {
   }
 
   getInitialState() {
-    return {
-      from: null,
-      to: null,
-      enteredTo: null
-    };
+    return { from: null, to: null, enteredTo: null };
   }
 
   isSelectingFirstDay(from: MaybeDate, to: MaybeDate, day: MaybeDate) {
@@ -70,19 +69,21 @@ export default class Example extends React.Component<{}, CalendarState> {
         enteredTo: null
       });
     } else {
+      // Set Component State
       this.setState({
         to: day as Date,
         enteredTo: day as Date
       });
+
+      // Set Top Level State
+      this.props.setTopLevelState({ dateTime: { to: day, from } });
     }
   }
 
   handleDayMouseEnter(day: MaybeDate) {
     const { from, to } = this.state;
     if (!this.isSelectingFirstDay(from, to, day)) {
-      this.setState({
-        enteredTo: day as Date
-      });
+      this.setState({ enteredTo: day as Date });
     }
   }
 

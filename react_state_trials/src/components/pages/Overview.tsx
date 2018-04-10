@@ -1,7 +1,11 @@
 import * as React from "react";
 import DatePicker from "../sfc/Calendar";
 
-class Overview extends React.Component {
+import { State } from "../../types";
+
+type OverviewProps = State;
+
+class Overview extends React.Component<OverviewProps, {}> {
   render() {
     return (
       <div className="App">
@@ -12,7 +16,7 @@ class Overview extends React.Component {
           </h2>
 
           <h3>Please select the date range you're interested in.</h3>
-          <DatePicker />
+          <DatePicker {...this.props} />
         </header>
       </div>
     );
