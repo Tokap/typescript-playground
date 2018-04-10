@@ -86,23 +86,25 @@ export default class Example extends React.Component<{}, CalendarState> {
   }
 
   renderSelectMessage(): JSX.Element {
-    if (!!this.state.from && !!this.state.to) {
+    const { to, from } = this.state;
+    if (!!from && !!to) {
       // Holds all data:
       return (
-        <button className="link" onClick={this.handleResetClick}>
-          Reset
-        </button>
+        <div>
+          <span>
+            {`Selected from ${from.toLocaleDateString()} to ${to.toLocaleDateString()}`}
+          </span>
+          <button className="link" onClick={this.handleResetClick}>
+            Reset
+          </button>
+        </div>
       );
     } else if (!!this.state.from && !this.state.to) {
       // Holds start date only:
       return <span>"Please select the last day.";</span>;
     } else {
       // Otherwise, we have nothing:
-      return (
-        <button className="link" onClick={this.handleResetClick}>
-          Reset
-        </button>
-      );
+      return <span>"Please select the first day."</span>;
     }
   }
 
