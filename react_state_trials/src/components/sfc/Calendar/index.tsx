@@ -130,12 +130,9 @@ export default class Example extends React.Component<
           className="Range"
           numberOfMonths={2}
           fromMonth={from}
-          selectedDays={
-            selectedDays // Package Types This Wrong - Must be nullable
-          }
-          disabledDays={
-            disabledDays // Package Types This Wrong - Must be nullable
-          }
+          // Package Types selectedDays & disabledDays Wrong - Must be nullable
+          selectedDays={selectedDays}
+          disabledDays={disabledDays}
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
           onDayMouseEnter={this.handleDayMouseEnter}
