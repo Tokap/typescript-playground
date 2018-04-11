@@ -80,7 +80,11 @@ class FullApp extends React.Component<{}, State> {
             exact={true}
           />
 
-          <Route path="/faq" render={() => <ProductFaq />} exact={true} />
+          <Route
+            path="/product_faq"
+            render={() => <ProductFaq />}
+            exact={true}
+          />
         </div>
       </BrowserRouter>
     );

@@ -1,10 +1,6 @@
 import * as React from "react";
 
 class AccessTokens extends React.Component {
-  componentDidMount() {
-    console.info("Boom. Done. Easy.");
-  }
-
   render() {
     return (
       <div className="App">

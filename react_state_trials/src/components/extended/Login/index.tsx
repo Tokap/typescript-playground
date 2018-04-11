@@ -2,13 +2,18 @@ import * as React from "react";
 
 import "./Login.css";
 
-class Login extends React.Component<{}, {}> {
+export interface LoginProps {
+  targetUrl: string;
+}
+
+// TODO: Expand as needed for more sophisticated logic
+class Login extends React.Component<LoginProps, {}> {
   render() {
     return (
-      <div id="new-form">
+      <div id="login-form">
         <h3>Please Enter Your Credentials:</h3>
 
-        <form action="/user" method="post">
+        <form action={this.props.targetUrl} method="post">
           <div className="form-field">
             <label htmlFor="username">Email</label>
             <input type="text" name="username" maxLength={20} />
